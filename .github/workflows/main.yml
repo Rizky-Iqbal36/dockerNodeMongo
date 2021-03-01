@@ -31,6 +31,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_IQBAL_PRACTICE }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          logout: true
 
       - name: Set up Docker Buildx
         id: buildx
@@ -47,5 +48,3 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-        with:
-          logout: true
