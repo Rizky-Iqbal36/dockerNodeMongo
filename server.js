@@ -12,7 +12,6 @@ mongoose
     useUnifiedTopology: true,
     useFindAndModify: false,
   })
-  .then(console.log("Mongo connected"))
   .catch((err) => {
     console.log("Mongo not connected");
     console.log(err);

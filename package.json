@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha src/test/test.js",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "start:dev": "nodemon --legacy-watch server.js",
     "dependency:local": "docker-compose up app mongo",
     "commit": "npx git-cz"
