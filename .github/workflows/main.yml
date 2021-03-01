@@ -43,7 +43,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ushamandya/simplewhale:latest
+          tags: 200140/docker-node-mongo:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
