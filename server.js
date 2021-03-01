@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/cat", router);
 app.get("/", (req, res) => {
-  res.send("your app is running on container");
+  res.send("your app is magically running on container");
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
