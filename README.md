@@ -12,7 +12,7 @@ whoam@i$ docker-compose up --build OR $ docker-compose build
 
 ## Use
 
-open http://localhost:3000/ for health-check
+http://localhost:3000/ for health-check
 
 ## Endpoints
 
