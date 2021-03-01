@@ -1,0 +1,29 @@
+version: "3"
+services:
+  app:
+    container_name: app
+    build: .
+    volumes:
+      - ./:/app
+    restart: always
+    working_dir: /app
+    depends_on:
+      - mongo
+    environment:
+      - SERVER_PORT=3000
+      - DATABASE_URL=mongodb://mongo:27017/test_db
+    ports:
+      - 3000:3000
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+
+volumes:
+  mongodb:
+  mongodb_config:
