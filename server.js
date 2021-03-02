@@ -1,27 +1,28 @@
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
-const router = require("./src/routes/router");
-const cors = require("cors");
-require("dotenv").config();
-const port = process.env.SERVER_PORT || 3000;
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const router = require('./src/routes/router')
+const cors = require('cors')
+require('dotenv').config()
+const port = process.env.SERVER_PORT || 3000
 
+console.log(process.env.DATABASE_URL, port)
 mongoose
   .connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
+    useFindAndModify: false
   })
-  .catch((err) => {
-    console.log("Mongo not connected");
-    console.log(err);
-  });
+  .catch(err => {
+    console.log('Mongo not connected')
+    console.log(err)
+  })
 
-app.use(express.json());
-app.use(cors());
-app.use("/api/cat", router);
-app.get("/", (req, res) => {
-  res.send("your app is running on docker container");
-});
+app.use(express.json())
+app.use(cors())
+app.use('/api/cat', router)
+app.get('/', (req, res) => {
+  res.send('your app is running on docker container')
+})
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () => console.log(`Listening on port ${port}`))
