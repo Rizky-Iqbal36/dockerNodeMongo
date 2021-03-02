@@ -20,6 +20,6 @@ see src/routes/router.js for endpoints list
 
 ## Docker Hub
 
-you can also pull/run(as container) the image for this project on : https://hub.docker.com/repository/docker/200140/docker-node-mongo
+you can also pull/run(as container) the image for this project on : https://hub.docker.com/r/200140/docker-node-mongo
 
 ### ENJOY
