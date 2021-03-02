@@ -1,6 +1,6 @@
 ### Dockerization an express app and mongodb
 
-## Installation
+## Running the app
 
 ```console
 whoam@i$ docker-compose up
@@ -16,6 +16,6 @@ http://localhost:3000/ for health-check
 
 ## Endpoints
 
-see src/routes/router.js for endpoint list
+see src/routes/router.js for endpoints list
 
 ### ENJOY
