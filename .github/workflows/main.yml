@@ -50,4 +50,6 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
 
   test:
-    - run: docker-compose -f docker-compose.yml run app npm run test
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker-compose -f docker-compose.yml run app npm run test
