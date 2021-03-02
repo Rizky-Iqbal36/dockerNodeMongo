@@ -49,4 +49,5 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
-      - run: docker-compose -f docker-compose.yml run app npm run test
+  test:
+    - run: docker-compose -f docker-compose.yml run app npm run test
