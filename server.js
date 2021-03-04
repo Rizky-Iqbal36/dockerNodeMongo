@@ -5,7 +5,7 @@ const router = require('./src/routes/router')
 const cors = require('cors')
 require('dotenv').config()
 const port = process.env.SERVER_PORT || 3000
-
+console.log(process.env.NODE_ENV)
 console.log(process.env.DATABASE_URL, port)
 mongoose
   .connect(process.env.DATABASE_URL, {
