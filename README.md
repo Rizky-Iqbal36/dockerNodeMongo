@@ -13,6 +13,7 @@ whoam@i$ docker-compose up --build OR $ docker-compose build
 ## Use
 
 http://localhost:3000/ for health-check
+use MONGO_LOCAL to to connect to mongodb locally
 
 ## Endpoints
 
