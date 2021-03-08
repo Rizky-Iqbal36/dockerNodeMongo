@@ -30,6 +30,7 @@ exports.read = async (req, res) => {
       data: cats
     })
   } catch (err) {
+    console.log(err)
     return res.status(500).send({
       error: {
         message: 'Server ERROR :('

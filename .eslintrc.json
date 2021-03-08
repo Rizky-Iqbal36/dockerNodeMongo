@@ -1,7 +1,8 @@
 {
   "env": {
     "node": true,
-    "commonjs": true
+    "commonjs": true,
+    "mocha": true
   },
   "extends": "eslint:recommended",
   "rules": {
@@ -9,6 +10,9 @@
     "quotes": ["error", "single"]
   },
   "parserOptions": {
-    "ecmaVersion": 2015
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   }
 }

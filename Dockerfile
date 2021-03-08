@@ -2,7 +2,6 @@ FROM node:12-alpine
 
 ARG NODE_ENV=local
 ENV NODE_ENV=${NODE_ENV}
-RUN echo ${NODE_ENV}
 
 RUN mkdir /app
 

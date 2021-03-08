@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-node-mongo
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cat-service
+  template:
+    metadata:
+      labels:
+        app: cat-service
+    spec:
+      containers:
+        - name: cat-api
+          image: 200140/docker-node-mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cat-service
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: cat-service
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30001
