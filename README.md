@@ -6,6 +6,8 @@
 whoam@i$ docker-compose up
 ```
 
+# For rebuild
+
 ```console
 whoam@i$ docker-compose up --build OR
 whoam@i$ docker-compose build
