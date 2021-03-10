@@ -1,4 +1,4 @@
-### Dockerization an express app and mongodb
+# Dockerization an express app and mongodb
 
 ## Running the app
 
@@ -6,7 +6,7 @@
 whoam@i$ docker-compose up
 ```
 
-# For rebuild
+### For rebuild
 
 ```console
 whoam@i$ docker-compose up --build OR
