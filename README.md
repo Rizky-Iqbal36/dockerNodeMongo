@@ -7,7 +7,8 @@ whoam@i$ docker-compose up
 ```
 
 ```console
-whoam@i$ docker-compose up --build OR whoam@i$ docker-compose build
+whoam@i$ docker-compose up --build OR
+whoam@i$ docker-compose build
 ```
 
 ## Use
