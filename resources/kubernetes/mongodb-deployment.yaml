@@ -46,5 +46,3 @@ spec:
       targetPort: 27017
   selector:
     app: mongo-pod
-
-    # database connectionurl=DATABASE_URL=mongodb://<username>:<password>@mongo-service/<yourdatabase>

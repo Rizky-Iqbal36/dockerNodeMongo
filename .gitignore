@@ -1,3 +1,4 @@
 node_modules
 .env
-resources/kubernetes/secret.yaml
+resources/secret/secret.yaml
+resources/secret/mongodb-keyfile
