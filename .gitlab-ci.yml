@@ -1,2 +1,2 @@
 include:
-  - local: '.gitlab/ci/main.gitlab-ci.yml'
+  - local: '.gitlab/ci/main-stage.gitlab-ci.yml'
