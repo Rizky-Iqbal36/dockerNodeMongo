@@ -15,4 +15,6 @@ RUN npm install
 
 COPY . .
 
+# ENTRYPOINT [ "sh","resources/script/test1.sh" ]
+
 CMD [ "npm", "run", "start" ]
