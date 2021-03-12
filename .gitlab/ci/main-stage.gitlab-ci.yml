@@ -1,5 +1,3 @@
-include:
-  - local: '.gitlab/ci/.gitlab-ci.yml'
 image: node:latest # (1)
 
 stages:
