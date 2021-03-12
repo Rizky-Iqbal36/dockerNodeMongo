@@ -26,7 +26,8 @@ docker-deploy-image:
   image: docker:dind
   services:
     - docker:dind
+  before_script:
+    - docker login registry.example.com -u "${GITLAB_USERNAME}" -p "${GITLAB_TOKEN}"
   script:
-    - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin # (5)
-    - docker build -t 2000140/docker-node-mongo .
-    - docker push 2000140/docker-node-mongo
+    - docker build -t registry.gitlab.com/rizkiiqbal36/docker-node-mongo .
+    - docker push registry.gitlab.com/rizkiiqbal36/docker-node-mongo
