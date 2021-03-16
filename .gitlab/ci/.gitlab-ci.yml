@@ -1,2 +1,4 @@
+stages:
+  - main
 include:
   - local: '.gitlab/ci/main-stage.gitlab-ci.yml'
