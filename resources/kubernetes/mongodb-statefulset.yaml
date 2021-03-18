@@ -88,8 +88,8 @@ spec:
         resources:
           requests:
             storage: 1Gi
-#define replica set in mongo bash by execute "kubectl exec -it mongod-0 -- bash"
-#in mongo bash, login to mongo by execute "mongo -u <username> -p <password>"
+#define replica set in pod bash by execute "kubectl exec -it mongod-0 -- bash"
+#in pod bash, login to mongo by execute "mongo -u <username> -p <password>"
 #execute this command to make your own replica set with your own host
 # rs.initiate({_id: "MainRepSet", version: 1, members: [
 #        { _id: 0, host : "mongod-0.mongodb-service:27017" },
