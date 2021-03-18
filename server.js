@@ -8,16 +8,15 @@ const { SERVER_PORT, MONGO_HOST, MONGO_USERNAME, MONGO_PASSWORD } = process.env
 const port = SERVER_PORT || 3000
 const connectionstring = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}${MONGO_HOST}`
 console.log(connectionstring)
-mongoose
-  .connect(connectionstring, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-  })
-  .catch(err => {
-    console.log('Mongo not connected')
-    console.log(err)
-  })
+mongoose.connect(`${process.env.MONGO_DB_URI}/${process.env.MONGO_DB_DB_NAME}`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  user: process.env.MONGO_DB_USER,
+  pass: process.env.MONGO_DB_PASS,
+  authSource: process.env.MONGO_DB_AUTH_SOURCE,
+  useFindAndModify: false,
+  useCreateIndex: true
+})
 
 app.use(express.json())
 app.use(cors())

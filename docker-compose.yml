@@ -9,22 +9,31 @@ services:
     restart: always
     working_dir: /app
     depends_on:
-      - mongo
-    environment:
-      - SERVER_PORT=3000
-      - DATABASE_URL=mongodb://mongo:27017/cat_db
+      - database
     ports:
       - 3000:3000
+    command: npm run start:dev
+    networks:
+      - net
 
-  mongo:
+  database:
     container_name: mongo
     image: mongo
     ports:
       - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=developer
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb
+    networks:
+      - net
 
 volumes:
   mongodb:
   mongodb_config:
+
+networks:
+  net:
+    driver: bridge
