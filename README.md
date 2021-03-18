@@ -16,7 +16,10 @@ whoam@i$ docker-compose build
 ## Use
 
 http://localhost:3000/ for health-check <br />
-use MONGO_LOCAL to connect to mongodb locally
+
+## Database Connection
+
+see .env.example for more details
 
 ## Endpoints
 
