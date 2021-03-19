@@ -26,7 +26,7 @@ whoam@i$ docker-compose build
 
 ### With Kubernetes
 
-## Deployment MongoDB
+### Deployment MongoDB
 
 Note:<br />
 you need to change the db connection on server.js before exec this command<br />
