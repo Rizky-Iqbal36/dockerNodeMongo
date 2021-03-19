@@ -66,7 +66,7 @@ spec:
                       sleep 5;
                       touch /data/db/admin-user.lock
                       if [ "$HOSTNAME" = "mongod-0" ]; then
-                        mongo --eval 'db = db.getSiblingDB("admin"); db.createUser({ user: "iqbal", pwd: "iqbal123", roles: [ "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase", "clusterAdmin"]});';
+                        mongo --eval 'db = db.getSiblingDB("admin"); db.createUser({ user: "root", pwd: "developer", roles: [ "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase", "clusterAdmin"]});';
                       fi;
                       mongod --shutdown;
                     fi;
