@@ -4,16 +4,22 @@ const mongoose = require('mongoose')
 const router = require('./src/routes/router')
 const cors = require('cors')
 require('dotenv').config()
-const { SERVER_PORT, MONGO_HOST, MONGO_USERNAME, MONGO_PASSWORD } = process.env
+const {
+  SERVER_PORT,
+  MONGO_STATEFULSET_HOST,
+  MONGO_STATEFULSET_DB_NAME,
+  MONGO_STATEFULSET_USER,
+  MONGO_STATEFULSET_PASS,
+  MONGO_STATEFULSET_AUTH_SOURCE
+} = process.env
 const port = SERVER_PORT || 3000
-const connectionstring = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}${MONGO_HOST}`
-console.log(connectionstring)
-mongoose.connect(`${process.env.MONGO_DB_URI}/${process.env.MONGO_DB_DB_NAME}`, {
+console.log(`${MONGO_STATEFULSET_HOST}/${MONGO_STATEFULSET_DB_NAME}`)
+mongoose.connect(`${MONGO_STATEFULSET_HOST}/${MONGO_STATEFULSET_DB_NAME}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  user: process.env.MONGO_DB_USER,
-  pass: process.env.MONGO_DB_PASS,
-  authSource: process.env.MONGO_DB_AUTH_SOURCE,
+  user: MONGO_STATEFULSET_USER,
+  pass: MONGO_STATEFULSET_PASS,
+  authSource: MONGO_STATEFULSET_AUTH_SOURCE,
   useFindAndModify: false,
   useCreateIndex: true
 })
