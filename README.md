@@ -36,7 +36,7 @@ see "Kubernetes Deployment" on .env.example<br />
   - encode your key value by exec "echo -n yourValue | base64" replace the output to ENCRYPTED_USERNAME<br />
   - do exactly the same to replace ENCRYPTED_PASSWORD<br />
   - now, you R ready to apply secret.example.yaml<br />
-- after that, you can apply mongodb-statefulset.yaml, mongo ready to use
+- after that, you can apply mongodb-deployment.yaml, mongo ready to use
 - login to mongo using the value of MONGO_USERNAME and MONGO_PASSWORD before you encode it
 
 #### Statefulset MongoDB (Replica Set)
