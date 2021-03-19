@@ -1,3 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pv-claim
+  labels:
+    app: mongo-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -9,6 +22,8 @@ spec:
   selector:
     matchLabels:
       app: mongo-pod
+  strategy:
+    type: Recreate
   template:
     metadata:
       name: mongo-pod
@@ -31,6 +46,13 @@ spec:
                   key: MONGO_PASSWORD
           ports:
             - containerPort: 27017
+          volumeMounts:
+            - name: mongodb-pv-claim
+              mountPath: /data/db
+      volumes:
+        - name: mongodb-pv-claim
+          persistentVolumeClaim:
+            claimName: mongodb-pv-claim
 ---
 apiVersion: v1
 kind: Service
