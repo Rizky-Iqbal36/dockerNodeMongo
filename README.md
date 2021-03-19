@@ -38,10 +38,27 @@ create kubernetes secret with the mongodb keyfile you just create <br />
 whoam@i$ kubectl create secret generic mongo-key --from-file=resources/secret/mongodb-keyfile
 ```
 
-- now you R ready to apply resources/kubernetes/mongodb-statefulset.yaml <br />
-- wait until all the 3 pods R running <br />
-  - see comment on resources/kubernetes/mongodb-statefulset.yaml for more instruction to make replica set <br />
-- after that you can run this application on kubernetes by apply kubernetes/deploy-app.yaml <br />
+- now you R ready to apply resources/kubernetes/mongodb-statefulset.yaml
+- wait until all the 3 pods R running
+  - define replica set in mongo bash in the running pod
+    - by execute "kubectl exec -it mongod-0 -- bash" you can acces the pod bash
+    - in pod bash, login to mongo, by execute "mongo -u <username> -p <password>"
+    - execute this command to make your own replica set with your own host
+      ```javascript
+      rs.initiate({
+        _id: 'MainRepSet',
+        version: 1,
+        members: [
+          { _id: 0, host: 'mongod-0.mongodb-service:27017' },
+          { _id: 1, host: 'mongod-1.mongodb-service:27017' },
+          { _id: 2, host: 'mongod-2.mongodb-service:27017' }
+        ]
+      })
+      ```
+    - rs.status() to see if there is primary replica set, if not
+    - exec "rs.slaveOk() || rs.secondaryOk()" to make host mongod-0.mongodb-service:27017 as primary
+      - depend on which pod you are accessing the mongo bash
+- after that you can run this application on kubernetes by apply kubernetes/deploy-app.yaml
   - wait until this app's pod is running
 - Done, the application is running on port 30001
 

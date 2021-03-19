@@ -88,14 +88,3 @@ spec:
         resources:
           requests:
             storage: 1Gi
-#define replica set in mongo bash in the running pod
-#by execute "kubectl exec -it mongod-0 -- bash" you can acces the pod bash
-#in pod bash, login to mongo, by execute "mongo -u <username> -p <password>",
-#execute this command to make your own replica set with your own host
-# rs.initiate({_id: "MainRepSet", version: 1, members: [
-#        { _id: 0, host : "mongod-0.mongodb-service:27017" },
-#        { _id: 1, host : "mongod-1.mongodb-service:27017" },
-#        { _id: 2, host : "mongod-2.mongodb-service:27017" }
-#  ]});
-# rs.status() to see if there is primary replica set, if not
-# exec rs.slaveOk() || rs.secondaryOk() to make host mongod-0.mongodb-service:27017 as primary //depend on which pod you are accessing the mongo bash
