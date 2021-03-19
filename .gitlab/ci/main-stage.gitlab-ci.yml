@@ -29,5 +29,6 @@ docker-deploy-image:
   before_script:
     - docker login -u "${GITLAB_USERNAME}" -p "${GITLAB_TOKEN}"
   script:
+    - cp .env.example .env
     - docker build -t 200140/docker-node-mongo:latest .
     - docker push 200140/docker-node-mongo:latest
