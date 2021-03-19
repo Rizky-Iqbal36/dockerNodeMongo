@@ -40,6 +40,7 @@ whoam@i$ kubectl create secret generic mongo-key --from-file=resources/secret/mo
 
 now you R ready to apply resources/kubernetes/mongodb-statefulset.yaml <br />
 wait until all the 3 pods R running <br />
+see comment on resources/kubernetes/mongodb-statefulset.yaml for more instruction to make replica set <br />
 after that you can run this application on kubernetes by apply kubernetes/deploy-app.yaml <br />
 Done, the application is running on port 30001
 
