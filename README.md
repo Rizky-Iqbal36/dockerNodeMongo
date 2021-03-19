@@ -42,7 +42,7 @@ whoam@i$ kubectl create secret generic mongo-key --from-file=resources/secret/mo
 - wait until all the 3 pods R running
   - define replica set in mongo bash in the running pod
     - by execute "kubectl exec -it mongod-0 -- bash" you can acces the pod bash
-    - in pod bash, login to mongo, by execute "mongo -u <username> -p <password>"
+    - in pod bash, login to mongo, by execute "mongo -u root -p developer"
     - execute this command to make your own replica set with your own host
       ```javascript
       rs.initiate({
