@@ -1,5 +1,8 @@
 # Dockerization an express app and mongodb
 
+Note: <br />
+this db configuration is for connecting to mongodb replica set on kubernetes <br />
+
 ## Running the app
 
 ```console
