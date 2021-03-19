@@ -38,11 +38,12 @@ create kubernetes secret with the mongodb keyfile you just create <br />
 whoam@i$ kubectl create secret generic mongo-key --from-file=resources/secret/mongodb-keyfile
 ```
 
-now you R ready to apply resources/kubernetes/mongodb-statefulset.yaml <br />
-wait until all the 3 pods R running <br />
-see comment on resources/kubernetes/mongodb-statefulset.yaml for more instruction to make replica set <br />
-after that you can run this application on kubernetes by apply kubernetes/deploy-app.yaml <br />
-Done, the application is running on port 30001
+- now you R ready to apply resources/kubernetes/mongodb-statefulset.yaml <br />
+- wait until all the 3 pods R running <br />
+  - see comment on resources/kubernetes/mongodb-statefulset.yaml for more instruction to make replica set <br />
+- after that you can run this application on kubernetes by apply kubernetes/deploy-app.yaml <br />
+  - wait until this app's pod is running
+- Done, the application is running on port 30001
 
 ## Use
 
