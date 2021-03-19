@@ -20,17 +20,15 @@ spec:
           image: mongo
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              value: root
-              # valueFrom:
-              #   secretKeyRef:
-              #     name: mongo-secret
-              #     key: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: MONGO_USERNAME
             - name: MONGO_INITDB_ROOT_PASSWORD
-              value: developer
-              # valueFrom:
-              #   secretKeyRef:
-              #     name: mongo-secret
-              #     key: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: MONGO_PASSWORD
           ports:
             - containerPort: 27017
 ---

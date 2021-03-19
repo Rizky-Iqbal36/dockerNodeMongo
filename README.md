@@ -26,6 +26,14 @@ whoam@i$ docker-compose build
 
 ### With Kubernetes
 
+### Deployment MongoDB
+
+Note:<br />
+you need to change the db connection on server.js before exec this command<br />
+see "Kubernetes Deployment" on .env.example<br />
+
+#### Statefulset MongoDB (Replica Set)
+
 secure your mongodb kefile <br />
 
 ```console
