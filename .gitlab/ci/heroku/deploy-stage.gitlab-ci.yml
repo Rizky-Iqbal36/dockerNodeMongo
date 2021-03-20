@@ -8,7 +8,7 @@ staging:
     - gem install dpl
   script:
     - cp .env.example .env
-    - dpl --provider=heroku --app="${HEROKU_APP_STAGING}" --api-key="${HEROKU_API_KEY}"
+    - dpl --provider=heroku --app="${HEROKU_APP_STAGING}" --api-key="${HEROKU_API_KEY_STAGING}"
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
       when: on_success
@@ -23,7 +23,7 @@ production:
     - gem install dpl
   script:
     - cp .env.example .env
-    - dpl --provider=heroku --app="${HEROKU_APP_PRODUCTION}" --api-key="${HEROKU_API_KEY}"
+    - dpl --provider=heroku --app="${HEROKU_APP_PRODUCTION}" --api-key="${HEROKU_API_KEY_PROD}"
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
       when: on_success
