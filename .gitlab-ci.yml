@@ -1,2 +1,7 @@
+stages:
+  - build
+  - deploy
+  - test
+  - docker-deploy-image
 include:
   - local: '.gitlab/ci/main-stage.gitlab-ci.yml'
