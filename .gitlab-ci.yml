@@ -1,8 +1,18 @@
+# stages:
+#   - build
+#   - test
+#   - docker-deploy-image
+#   - deploy
+# include:
+#   - local: '.gitlab/ci/main-stage.gitlab-ci.yml'
+#   - local: '.gitlab/ci/deploy-stage.gitlab-ci.yml'
+image: node:latest
 stages:
   - build
-  - deploy
   - test
-  - docker-deploy-image
+  - deploy-staging
+  - deploy-production
 include:
-  - local: '.gitlab/ci/main-stage.gitlab-ci.yml'
-  - local: '.gitlab/ci/deploy-stage.gitlab-ci.yml'
+  - local: '.gitlab/ci/heroku/build-stage.gitlab-ci.yml'
+  - local: '.gitlab/ci/heroku/test-stage.gitlab-ci.yml'
+  - local: '.gitlab/ci/heroku/deploy-stage.gitlab-ci.yml'

@@ -1,0 +1,3 @@
+testing:
+  stage: test
+  script: npm run test # (4)
