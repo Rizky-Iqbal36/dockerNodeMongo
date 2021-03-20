@@ -41,7 +41,7 @@ see "Kubernetes Deployment" on .env.example<br />
 
 #### Statefulset MongoDB (Replica Set)
 
-secure your mongodb kefile <br />
+secure your mongodb keyfile <br />
 
 ```console
 whoam@i$ openssl rand -base64 741 > resources/secret/mongodb-keyfile
@@ -94,5 +94,13 @@ see src/routes/router.js for endpoints list
 ## Docker Hub
 
 you can also pull/run(as container) the image for this project on : https://hub.docker.com/r/200140/docker-node-mongo
+
+Note:
+
+- the image's configuration is connecting to mongodb replica set<br />
+- if you want to connect to mongodb (without replica),
+  - just change the configuration using "Kubernetes Deployment" on .env (cp .env.example .env)
+  - rebuild the image and register your image on your own docker hub account
+  - don't forget to change container image on deploy-app.yaml with the image you just registered
 
 ### ENJOY
