@@ -2,6 +2,7 @@ before_script:
   - apt-get update -qy
   - apt-get install -y ruby-dev
   - gem install dpl
+  - cp .env.example .env
 
 staging:
   type: deploy
@@ -9,8 +10,9 @@ staging:
   image: ruby:latest
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
-  only:
-    - staging
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+      when: on_success
 
 production:
   type: deploy
@@ -18,5 +20,6 @@ production:
   image: ruby:latest
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
-  only:
-    - master
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: on_success
