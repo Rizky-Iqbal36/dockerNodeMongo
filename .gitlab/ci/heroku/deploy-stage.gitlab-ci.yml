@@ -9,7 +9,7 @@ staging:
   stage: deploy-staging
   image: ruby:latest
   script:
-    - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app="${HEROKU_APP_STAGING}" --api-key="${HEROKU_API_KEY}"
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
       when: on_success
@@ -19,7 +19,7 @@ production:
   stage: deploy-production
   image: ruby:latest
   script:
-    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app="${HEROKU_APP_PRODUCTION}" --api-key="${HEROKU_API_KEY}"
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
       when: on_success
