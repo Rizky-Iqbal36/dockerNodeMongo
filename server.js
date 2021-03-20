@@ -5,14 +5,14 @@ const router = require('./src/routes/router')
 const cors = require('cors')
 require('dotenv').config()
 const {
-  SERVER_PORT,
+  PORT,
   MONGO_STATEFULSET_HOST,
   MONGO_STATEFULSET_DB_NAME
   // MONGO_STATEFULSET_USER,
   // MONGO_STATEFULSET_PASS,
   // MONGO_STATEFULSET_AUTH_SOURCE
 } = process.env
-const port = SERVER_PORT || 3000
+const port = PORT || 3000
 console.log(`${MONGO_STATEFULSET_HOST}/${MONGO_STATEFULSET_DB_NAME}`)
 // mongoose.connect(`${MONGO_STATEFULSET_HOST}/${MONGO_STATEFULSET_DB_NAME}`, {
 //   useNewUrlParser: true,
