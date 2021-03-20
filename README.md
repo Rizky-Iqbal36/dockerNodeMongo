@@ -101,6 +101,6 @@ Note:
 - if you want to connect to mongodb (without replica)
   - just change the configuration using "Kubernetes Deployment" on .env (cp .env.example .env)
   - rebuild the image and register your image on your own docker hub account
-  - don't forget to change container image on deploy-app.yaml with the image you just registered before you apply
+  - don't forget to change the container image on deploy-app.yaml with the image you just registered before you apply
 
 ### ENJOY

@@ -1,22 +1,29 @@
-before_script:
-  - apt-get update -qy
-  - apt-get install -y ruby-dev
-  - gem install dpl
-
 staging:
   type: deploy
   stage: deploy-staging
   image: ruby:latest
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
   script:
-    - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
-  only:
-    - staging
+    - cp .env.example .env
+    - dpl --provider=heroku --app="${HEROKU_APP_STAGING}" --api-key="${HEROKU_API_KEY}"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+      when: on_success
 
 production:
   type: deploy
   stage: deploy-production
   image: ruby:latest
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
   script:
-    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
-  only:
-    - master
+    - cp .env.example .env
+    - dpl --provider=heroku --app="${HEROKU_APP_PRODUCTION}" --api-key="${HEROKU_API_KEY}"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: on_success
