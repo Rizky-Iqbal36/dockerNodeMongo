@@ -5,3 +5,4 @@ stages:
   - docker-deploy-image
 include:
   - local: '.gitlab/ci/main-stage.gitlab-ci.yml'
+  - local: '.gitlab/ci/deploy-stage.gitlab-ci.yml'
