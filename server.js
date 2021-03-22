@@ -4,26 +4,18 @@ const mongoose = require('mongoose')
 const router = require('./src/routes/router')
 const cors = require('cors')
 require('dotenv').config()
-const {
-  PORT,
-  MONGO_STATEFULSET_HOST,
-  MONGO_STATEFULSET_DB_NAME,
-  MONGO_STATEFULSET_USER,
-  MONGO_STATEFULSET_PASS,
-  MONGO_STATEFULSET_AUTH_SOURCE
-} = process.env
+const { NODE_ENV, PORT, MONGO_DB_CLOUD_HOST, MONGO_DB_CLOUD_USERNAME, MONGO_DB_CLOUD_PASSWORD } = process.env
+const dbName = NODE_ENV === 'test' ? 'test_db' : 'prod_db'
 const port = PORT || 3000
-console.log(`${MONGO_STATEFULSET_HOST}/${MONGO_STATEFULSET_DB_NAME}`)
-mongoose.connect(`${MONGO_STATEFULSET_HOST}/${MONGO_STATEFULSET_DB_NAME}`, {
+console.log(`${MONGO_DB_CLOUD_HOST}/${dbName}`)
+mongoose.connect(`${MONGO_DB_CLOUD_HOST}/${dbName}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  user: MONGO_STATEFULSET_USER,
-  pass: MONGO_STATEFULSET_PASS,
-  authSource: MONGO_STATEFULSET_AUTH_SOURCE,
+  user: MONGO_DB_CLOUD_USERNAME,
+  pass: MONGO_DB_CLOUD_PASSWORD,
   useFindAndModify: false,
   useCreateIndex: true
 })
-
 app.use(express.json())
 app.use(cors())
 app.use('/api/cat', router)

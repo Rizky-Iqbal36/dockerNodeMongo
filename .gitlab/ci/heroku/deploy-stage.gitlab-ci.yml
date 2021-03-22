@@ -6,6 +6,8 @@ staging:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
+    - export NODE_ENV=test
+    - echo $MONGO_DB_CLOUD_HOST
   script:
     - cp .env.example .env
     - dpl --provider=heroku --app="${HEROKU_APP_STAGING}" --api-key="${HEROKU_API_KEY_STAGING}"
@@ -21,6 +23,7 @@ production:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
+    - export NODE_ENV=production
   script:
     - cp .env.example .env
     - dpl --provider=heroku --app="${HEROKU_APP_PRODUCTION}" --api-key="${HEROKU_API_KEY_PROD}"

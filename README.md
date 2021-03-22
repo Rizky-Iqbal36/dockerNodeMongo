@@ -1,8 +1,5 @@
 # Dockerization an express app and mongodb
 
-Note: <br />
-this db configuration is for connecting to mongodb replica set on kubernetes <br />
-
 ## Running the app
 
 rename or copy .env.example to .env
@@ -35,7 +32,7 @@ see "Kubernetes Deployment" on .env.example<br />
 - on secret.example.yaml <br />
   - encode your key value by exec "echo -n yourValue | base64" replace the output to ENCRYPTED_USERNAME<br />
   - do exactly the same to replace ENCRYPTED_PASSWORD<br />
-  - now, you R ready to apply secret.example.yaml<br />
+  - now, you R ready to apply secret.example.yaml (you can rename it)<br />
 - after that, you can apply mongodb-deployment.yaml, mongo ready to use
 - login to mongo using the value of MONGO_USERNAME and MONGO_PASSWORD before you encode it
 
@@ -95,12 +92,11 @@ see src/routes/router.js for endpoints list
 
 you can also pull/run(as container) the image for this project on : https://hub.docker.com/r/200140/docker-node-mongo
 
-Note:
-
-- the image's configuration is connecting to mongodb replica set<br />
-- if you want to connect to mongodb (without replica)
-  - just change the configuration using "Kubernetes Deployment" on .env (cp .env.example .env)
-  - rebuild the image and register your image on your own docker hub account
-  - don't forget to change the container image on deploy-app.yaml with the image you just registered before you apply
+| :warning: DEPRECATED                                                                                                |
+| :------------------------------------------------------------------------------------------------------------------ |
+| Make your own image instead...                                                                                      |
+| Just change the config                                                                                              |
+| - rebuild the image and register your image on your own docker hub account                                          |
+| - don't forget to change the container image on deploy-app.yaml with the image you just registered before you apply |
 
 ### ENJOY
