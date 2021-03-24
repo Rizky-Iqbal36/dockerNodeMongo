@@ -5,6 +5,8 @@ staging:
   needs:
     - job: install_dependencies
       artifacts: true
+    - job: testing
+      artifacts: true
   before_script:
     - apt-get update -qy
     - apt-get install -y ruby-dev
@@ -23,6 +25,8 @@ production:
   image: ruby:latest
   needs:
     - job: install_dependencies
+      artifacts: true
+    - job: testing
       artifacts: true
   before_script:
     - apt-get update -qy
