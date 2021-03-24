@@ -2,7 +2,7 @@ staging:
   type: deploy
   stage: deploy-staging
   image: ruby:latest
-  need:
+  needs:
     - job: install_dependencies
       artifacts: true
   before_script:
@@ -21,7 +21,7 @@ production:
   type: deploy
   stage: deploy-production
   image: ruby:latest
-  need:
+  needs:
     - job: install_dependencies
       artifacts: true
   before_script:
