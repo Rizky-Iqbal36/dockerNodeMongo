@@ -1,3 +1,6 @@
 testing:
   stage: test
+  need:
+    - job: install_dependencies
+      artifacts: true
   script: npm run test # (4)

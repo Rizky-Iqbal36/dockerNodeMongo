@@ -8,7 +8,7 @@ const { NODE_ENV, PORT, MONGO_DB_CLOUD_HOST, MONGO_DB_CLOUD_USERNAME, MONGO_DB_C
 const dbName = NODE_ENV === 'test' ? 'test_db' : 'prod_db'
 const port = PORT || 3000
 console.log(`${MONGO_DB_CLOUD_HOST}/${dbName}`)
-mongoose.connect(`${MONGO_DB_CLOUD_HOST}/${dbName}`, {
+mongoose.connect(`${MONGO_DB_CLOUD_HOST}/${dbName}?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   user: MONGO_DB_CLOUD_USERNAME,
