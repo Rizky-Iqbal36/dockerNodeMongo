@@ -2,10 +2,16 @@ staging:
   type: deploy
   stage: deploy-staging
   image: ruby:latest
+  needs:
+    - job: install_dependencies
+      artifacts: true
+    - job: testing
+      artifacts: true
   before_script:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
+    - export NODE_ENV=test
   script:
     - cp .env.example .env
     - dpl --provider=heroku --app="${HEROKU_APP_STAGING}" --api-key="${HEROKU_API_KEY_STAGING}"
@@ -17,10 +23,16 @@ production:
   type: deploy
   stage: deploy-production
   image: ruby:latest
+  needs:
+    - job: install_dependencies
+      artifacts: true
+    - job: testing
+      artifacts: true
   before_script:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
+    - export NODE_ENV=production
   script:
     - cp .env.example .env
     - dpl --provider=heroku --app="${HEROKU_APP_PRODUCTION}" --api-key="${HEROKU_API_KEY_PROD}"
