@@ -13,6 +13,6 @@ stages:
   - deploy-staging
   - deploy-production
 include:
-  - local: ".gitlab/ci/heroku/build-stage.gitlab-ci.yml"
-  - local: ".gitlab/ci/heroku/test-stage.gitlab-ci.yml"
-  - local: ".gitlab/ci/heroku/deploy-stage.gitlab-ci.yml"
+  - local: '.gitlab/ci/heroku/build-stage.gitlab-ci.yml'
+  - local: '.gitlab/ci/heroku/test-stage.gitlab-ci.yml'
+  - local: '.gitlab/ci/heroku/deploy-stage.gitlab-ci.yml'
