@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "commit": "npx git-cz",
-    "dependency:local": "docker-compose up app mongo",
+    "dependency:local": "docker-compose up -d app database sonarqube",
+    "sonarqube:local": "source resources/script/local-sonar.sh",
     "format": "prettier --write .",
     "start": "node server.js",
     "start:dev": "nodemon --legacy-watch server.js",
